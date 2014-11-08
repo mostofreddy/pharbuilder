@@ -27,7 +27,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.*",
-        "squizlabs/php_codesniffer": "1.*"
+        "squizlabs/php_codesniffer": "1.*",
+        "satooshi/php-coveralls": "dev-master"
     },
     "prefer-stable": true,
     "minimum-stability": "dev",

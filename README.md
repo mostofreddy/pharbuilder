@@ -6,6 +6,7 @@ Phox
 [![Total Downloads](https://poser.pugx.org/mostofreddy/phox/downloads.svg)](https://packagist.org/packages/mostofreddy/phox)
 [![Latest Unstable Version](https://poser.pugx.org/mostofreddy/phox/v/unstable.svg)](https://packagist.org/packages/mostofreddy/phox)
 [![License](https://poser.pugx.org/mostofreddy/phox/license.svg)](https://packagist.org/packages/mostofreddy/phox)
+[![Coverage Status](https://coveralls.io/repos/mostofreddy/phox/badge.png?branch=master)](https://coveralls.io/r/mostofreddy/phox?branch=master)
 
 A tool for simplifying the PHAR build, extract and signature process.
 
