@@ -32,7 +32,7 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "bin": [
-        "phox"
+        "bin/phox"
     ],
     "config": {
         "bin-dir": "bin"
