@@ -1,8 +1,8 @@
 {
     "name": "mostofreddy/phox",
-    "description": "Package",
-    "version": "0.1.0",
-    "keywords": ["Phar"],
+    "description": "A tool for simplifying the PHAR build, extract and signature process.",
+    "version": "0.2.0",
+    "keywords": ["Phar", "building", "package"],
     "homepage": "https://github.com/mostofreddy/phox",
     "type": "library",
     "license": "MIT",
@@ -20,7 +20,7 @@
         }
     },
     "require": {
-        "php": ">=5.3.0",
+        "php": ">=5.4.0",
         "symfony/console": "*",
         "symfony/event-dispatcher": "*",
         "symfony/finder": "*"
@@ -29,7 +29,7 @@
         "phpunit/phpunit": "4.1.*",
         "squizlabs/php_codesniffer": "1.*"
     },
-     "prefer-stable": true,
+    "prefer-stable": true,
     "minimum-stability": "dev",
     "bin": ["bin/phox"]
 }

@@ -70,7 +70,7 @@ class SignatureCreate extends Command
             'output',
             null,
             InputOption::VALUE_REQUIRED,
-            'Directory where the hash is generated'
+            '[REQUIRED] Directory where the hash is generated'
         );
     }
     /**
