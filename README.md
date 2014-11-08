@@ -14,7 +14,7 @@ How is it used?
 Build
 -----
 
-./phox build --output=/tmp/my_dir --alias=MyAlias --src=/var/www/my_project [--stub=bin/cli.php] [--stubweb=web/server.php] [--replace] [--exclude=tests] [--exclude=docs]
+    ./phox build --output=/tmp/my_dir --alias=MyAlias --src=/var/www/my_project [--stub=bin/cli.php] [--stubweb=web/server.php] [--replace] [--exclude=tests] [--exclude=docs]
 
 
 * output: Directory where the file was created. __Required__
@@ -29,7 +29,7 @@ Build
 Extract
 -------
 
-./phox extract --output=/tmp/my_dir/extract --phar=/tmp/my_dir/MyAlias.phar
+    ./phox extract --output=/tmp/my_dir/extract --phar=/tmp/my_dir/MyAlias.phar
 
 * output: Directory where the file will extract. __Required__
 * phar: Path to Phar. __Required__
@@ -37,7 +37,7 @@ Extract
 Signature
 ---------
 
-./phox sign-create --phar=/tmp/my_dir/MyAlias.phar --output=/tmp/my_dir [--sign-type=SHA256]
+    ./phox sign-create --phar=/tmp/my_dir/MyAlias.phar --output=/tmp/my_dir [--sign-type=SHA256]
 
 * phar: Path to Phar. __Required__
 * output: Directory where the hash is generated. __Required__
@@ -46,7 +46,7 @@ Signature
 Validate sign
 -------------
 
-./phox sign-validate --phar=/tmp/my_dir/MyAlias.phar --sign-file=/tmp/my_dir/hash.SHA256
+    ./phox sign-validate --phar=/tmp/my_dir/MyAlias.phar --sign-file=/tmp/my_dir/hash.SHA256
 
 * phar: Path to Phar. __Required__
 * sign: Signature string. Optional
