@@ -1,6 +1,12 @@
 Phox
 ====
 
+[![Build Status](https://travis-ci.org/mostofreddy/phox.svg?branch=master)](https://travis-ci.org/mostofreddy/phox)
+[![Latest Stable Version](https://poser.pugx.org/mostofreddy/phox/v/stable.svg)](https://packagist.org/packages/mostofreddy/phox)
+[![Total Downloads](https://poser.pugx.org/mostofreddy/phox/downloads.svg)](https://packagist.org/packages/mostofreddy/phox)
+[![Latest Unstable Version](https://poser.pugx.org/mostofreddy/phox/v/unstable.svg)](https://packagist.org/packages/mostofreddy/phox)
+[![License](https://poser.pugx.org/mostofreddy/phox/license.svg)](https://packagist.org/packages/mostofreddy/phox)
+
 A tool for simplifying the PHAR build, extract and signature process.
 
 Version
@@ -56,3 +62,13 @@ Validate sign
 * phar: Path to Phar. __Required__
 * sign: Signature string. Optional
 * sign-file: Signature file. Optional
+
+License
+=======
+
+The [MIT License](http://opensource.org/licenses/MIT) ([MIT](http://opensource.org/licenses/MIT)). Please see [License File](https://github.com/mostofreddy/phox/blob/master/LICENSE.md) for more information.
+
+Issues
+======
+
+Before reporting a problem, please read how to [File an issue](https://github.com/mostofreddy/phox/issues).
