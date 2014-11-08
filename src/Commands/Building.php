@@ -160,7 +160,7 @@ class Building extends Command
             //add all files in the phar object
             $progress->start();
             foreach ($finder as $file) {
-                $alias = ltrim(str_replace($src, '', $file->getRealPath()), '/');
+                $alias = ltrim(str_replace($src, '', $file->getPathname()), '/');
                 $phar->addFile($file, $alias);
                 $progress->advance();
             }
