@@ -8,6 +8,11 @@ Version
 
 __0.2.0__
 
+Install
+=======
+
+    composer global require "mostofreddy/phox=1.0.x-dev"
+
 How is it used?
 ===============
 
