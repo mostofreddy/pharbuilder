@@ -1,0 +1,99 @@
+#---------------------------------#
+# Composer
+#---------------------------------#
+vendor
+composer.lock
+
+#---------------------------------#
+# Unit tests
+#---------------------------------#
+tests/coverage
+
+#---------------------------------#
+# OS junk files
+#---------------------------------#
+[Tt]humbs.db
+*.DS_Store
+
+#---------------------------------#
+# Project files
+#---------------------------------#
+[Bb]uild/
+
+#---------------------------------#
+# Subversion files
+#---------------------------------#
+.svn
+
+#---------------------------------#
+# generic files to ignore
+#---------------------------------#
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+
+#---------------------------------#
+# Eclipse
+#---------------------------------#
+*.pydevproject
+.metadata
+.gradle
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+# External tool builders
+.externalToolBuilders/
+# Locally stored "Eclipse launch configurations"
+*.launch
+# CDT-specific
+.cproject
+# PDT-specific
+.buildpath
+# sbteclipse plugin
+.target
+# TeXlipse plugin
+.texlipse
+
+#---------------------------------#
+# Netbeans
+#---------------------------------#
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+#---------------------------------#
+# Sublime
+#---------------------------------#
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+# workspace files are user-specific
+*.sublime-workspace
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+# sftp configuration file
+sftp-config.json
+
+#---------------------------------#
+# Vim
+#---------------------------------#
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
