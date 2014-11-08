@@ -64,19 +64,6 @@ class StubTest extends PHPUnit_Framework_TestCase
     /**
      * Test method setStubCli
      *
-     * @expectedException \Exception
-     * @expectedExceptionMessage Invalid file
-     *
-     * @return void
-     */
-    public function testSetStubCliThrowException()
-    {
-        $stub = new \Mostofreddy\Phox\Phar\Stub();
-        $stub->setStubCli('');
-    }
-    /**
-     * Test method setStubCli
-     *
      * @return void
      */
     public function testSetStubCli()
@@ -84,19 +71,6 @@ class StubTest extends PHPUnit_Framework_TestCase
         $stub = new \Mostofreddy\Phox\Phar\Stub();
         $stub->setStubCli(__FILE__);
         $this->assertAttributeEquals(__FILE__, 'stubCli', $stub);
-    }
-    /**
-     * Test method setStubWeb
-     *
-     * @expectedException \Exception
-     * @expectedExceptionMessage Invalid file
-     *
-     * @return void
-     */
-    public function testSetStubWebThrowException()
-    {
-        $stub = new \Mostofreddy\Phox\Phar\Stub();
-        $stub->setStubWeb('');
     }
     /**
      * Test method setStubWeb
@@ -114,7 +88,7 @@ class StubTest extends PHPUnit_Framework_TestCase
      * Test method setStubWeb
      *
      * @expectedException \Exception
-     * @expectedExceptionMessage Stub dir is not writable
+     * @expectedExceptionMessage Dir  is not writable
      *
      * @return void
      */
