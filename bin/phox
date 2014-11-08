@@ -1,0 +1,34 @@
+#!/usr/bin/php
+<?php
+//load autolad
+foreach (array(__DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php') as $file) {
+    if (file_exists($file)) {
+        define('PHOX_COMPOSER_INSTALL', $file);
+        break;
+    }
+}
+
+if (!defined('PHOX_COMPOSER_INSTALL')) {
+    die(
+        'You need to set up the project dependencies using the following commands:' . PHP_EOL .
+        'wget http://getcomposer.org/composer.phar' . PHP_EOL .
+        'php composer.phar install' . PHP_EOL
+    );
+}
+
+require PHOX_COMPOSER_INSTALL;
+
+use Mostofreddy\Phox\App;
+use Mostofreddy\Phox\Commands\Building;
+use Mostofreddy\Phox\Commands\Extract;
+use Mostofreddy\Phox\Commands\SignatureCreate;
+use Mostofreddy\Phox\Commands\SignatureValidate;
+
+
+$application = new App('Phox Application', '0.1.0');
+$application->add(new Building);
+$application->add(new Extract);
+$application->add(new SignatureCreate);
+$application->add(new SignatureValidate);
+$result = $application->run();
+exit($result);
