@@ -35,6 +35,11 @@ Composer
         ...
     }
 
+Download
+--------
+
+    wget https://github.com/mostofreddy/phox/releases/download/1.0.0/phox.phar
+
 How is it used?
 ===============
 
