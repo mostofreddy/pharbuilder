@@ -82,6 +82,17 @@ class Stub
         return $this;
     }
     /**
+     * Get file for cli stub
+     *
+     * @param string $stub relative path to file
+     *
+     * @return self
+     */
+    public function getStubCli()
+    {
+        return $this->stubCli;
+    }
+    /**
      * Set file for web stub
      *
      * @param string $stub relative path to file
@@ -92,6 +103,17 @@ class Stub
     {
         $this->stubWeb = $stub;
         return $this;
+    }
+    /**
+     * Get file for web stub
+     *
+     * @param string $stub relative path to file
+     *
+     * @return self
+     */
+    public function getStubWeb()
+    {
+        return $this->stubWeb;
     }
     /**
      * Directory for create default stub if no defined setStubCli or setStubWeb.
@@ -115,11 +137,11 @@ class Stub
      *
      * @return string
      */
-    public function createDefaultStub(\Phar $phar)
+    public function createDefaultStub()
     {
         $this->createStubCli();
         $this->createStubWeb();
-        return $phar->createDefaultStub($this->stubCli);
+        //return $phar->createDefaultStub($this->stubCli, $this->stubWeb);
     }
     /**
      * Set & create Cli Stub

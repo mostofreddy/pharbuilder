@@ -18,13 +18,14 @@
 
 namespace Mostofreddy\Phox\Commands;
 
-use Mostofreddy\Phox\Phar\Stub;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Console\Helper\ProgressBar;
+use Mostofreddy\Phox\Phar\Stub;
+use Mostofreddy\Phox\Fruta;
 
 /**
  * Building
@@ -124,10 +125,6 @@ class Building extends Command
                 \Phar::unlinkArchive($rutaPhar);
             }
 
-            //create phar object
-            $phar = new \Phar($rutaPhar, 0, $alias);
-            $phar->startBuffering();
-
             //create and setup Stup object
             $oStub = new Stub();
             if (null !== $stub) {
@@ -137,23 +134,31 @@ class Building extends Command
                 $oStub->setStubWeb($stubweb);
             }
             $oStub->setDirTmp($src);
+            $oStub->createDefaultStub();
 
-            //create default stubs
-            $phar->setStub(
-                $oStub->createDefaultStub($phar)
-            );
-
-            //search files in src directory
+            //create Finder object
             $finder = new Finder();
             $finder->files()
                 ->in($src);
-
             foreach ($exclude as $dirToExclude) {
                 $finder->exclude($dirToExclude);
             }
 
             //inicialize progressbar
             $progress = new ProgressBar($output, count($finder));
+
+            //create phar object
+            $phar = new \Phar($rutaPhar, 0, $alias);
+            $phar->startBuffering();
+
+            //create default stubs
+            $phar->setStub(
+                $phar->createDefaultStub(
+                    $oStub->getStubCli(),
+                    $oStub->getStubWeb()
+                )
+            );
+
             $progress->setBarCharacter('<comment>=</comment>');
             $progress->setProgressCharacter('<comment>></comment>');
 
@@ -165,7 +170,6 @@ class Building extends Command
                 $progress->advance();
             }
             $progress->finish();
-
             $phar->stopBuffering();
 
             $oStub->deleteTmpStubs();

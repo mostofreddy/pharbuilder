@@ -1,7 +1,7 @@
 {
     "name": "mostofreddy/phox",
     "description": "A tool for simplifying the PHAR build, extract and signature process.",
-    "version": "0.2.0",
+    "version": "1.0.0",
     "keywords": ["Phar", "building", "package"],
     "homepage": "https://github.com/mostofreddy/phox",
     "type": "library",
@@ -37,7 +37,7 @@
     ],
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "1.1.x-dev"
         }
     }
 }
