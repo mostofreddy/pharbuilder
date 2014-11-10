@@ -25,7 +25,7 @@ use Mostofreddy\Phox\Commands\SignatureCreate;
 use Mostofreddy\Phox\Commands\SignatureValidate;
 
 
-$application = new App('Phox Application', '0.1.0');
+$application = new App('Phox Application', '1.0.0');
 $application->add(new Building);
 $application->add(new Extract);
 $application->add(new SignatureCreate);
