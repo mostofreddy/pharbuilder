@@ -58,6 +58,8 @@ class Building extends Command
 
     protected function setOptions()
     {
+        $msjStubWeb = 'Endpoint file when the Phar file is running as a site on server';
+        $msjStubWeb -= ' (ex: virtal host on Apache or server block in Nginx). Example: --stubweb=src/mainStubWeb.php.';
         $this->addOption(
             'src',
             null,
@@ -77,12 +79,12 @@ class Building extends Command
             'stub',
             null,
             InputOption::VALUE_REQUIRED,
-            'Path to the php file to call when Phar file is running from command line. Example: --stubweb=src/mainStubCli.php.' 
+            'Path to the php file to call when Phar file is running from command line. Example: --stubweb=src/mainStubCli.php.'
         )->addOption(
             'stubweb',
             null,
             InputOption::VALUE_REQUIRED,
-            'Endpoint file when the Phar file is running as a site on server (ex: virtal host on Apache or server block in Nginx). Example: --stubweb=src/mainStubWeb.php.'
+            $msjStubWeb
         )->addOption(
             'replace',
             false,

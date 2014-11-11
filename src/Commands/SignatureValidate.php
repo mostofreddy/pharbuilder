@@ -89,8 +89,8 @@ class SignatureValidate extends Command
         $this->validate($input, $output);
 
         $rutaPhar = $input->getOption('phar');
-        $sign = $input->getOption('sign');
-        $signFile = $input->getOption('sign-file');
+        $sign = $input->getOption('hash-string');
+        $signFile = $input->getOption('hash-file');
 
         if (null !== $signFile) {
             $sign = file_get_contents($signFile);
@@ -131,7 +131,7 @@ class SignatureValidate extends Command
             }
         }
 
-        $signFile = $input->getOption('sign-file');
+        $signFile = $input->getOption('hash-file');
         if (null !== $signFile) {
             if (!is_file($signFile) || !is_readable($signFile)) {
                 $output->writeln('<error>The file '.$signFile.' is not redeable</error>');

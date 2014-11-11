@@ -10,50 +10,51 @@
 
 Phox provide a simple way to build, extract and sign Phar files.
 
-##Using Phox
-####Running Phox from the command line
+## Using Phox
+
+### Running Phox from the command line
 
     phox build --src=/var/www/my_project --output=/tmp/my_dir [--alias=MyAlias] [--stub=bin/cli.php] [--stubweb=web/server.php] [--replace] [--exclude=tests] [--exclude=docs]
 
-* output: Directory where the file was created. __Required__
-* src: The full or relative path to the directory that contains all files to add to the archive. __Required__
-* alias: Alias with which this Phar archive should be referred to in calls to stream functionality. Optional
-* stub: Cli bootstrap. Path relative tu src option. Optional
-* stubweb: Web bootstrap. Path relative tu src option. Optional
-* replace: If the file exists, delete it. Optional
-* exclude: xcludes a directory. Optional
+* output: __REQUIRED__ The full or relative path to the directory that contains all files to add.
+* src: __REQUIRED__ Output directory for phar file.
+* alias: Alias with which this Phar archive should be referred to in calls to stream functionality.
+* stub: Path to the php file to call when Phar file is running from command line. Example: --stubweb=src/mainStubCli.php.
+* stubweb: Endpoint file when the Phar file is running as a site on server (ex: virtal host on Apache or server block in Nginx). Example: --stubweb=src/mainStubWeb.php.
+* replace: If the file exists, delete it.
+* exclude: Directory exclusion (ex: --exclude=tests --exclude=docs). (multiple values allowed)
 
 Example
 
     php phox build --src=/var/www/my_project --output=/tmp/my_dir
 
-####Extracting files
+### Extracting files
 
 
     phox extract --output=/tmp/my_dir/extract --phar=/tmp/my_dir/MyAlias.phar
 
-* output: Directory where the file will extract. __Required__
-* phar: Path to Phar. __Required__
+* output: __REQUIRED__ Output directory to extract the files.
+* phar: __REQUIRED__ Path to Phar file.
 
-####Signature
+### Signature
 
-    phox sign-create --phar=/tmp/my_dir/MyAlias.phar --output=/tmp/my_dir [--sign-type=SHA256]
+    phox sign-create --phar=/tmp/my_dir/MyAlias.phar --output=/tmp/my_dir [--encrypt-type=SHA256]
 
-* phar: Path to Phar. __Required__
-* output: Directory where the hash is generated. __Required__
-* sign-type: Hash: MD5, SHA1, SHA256, SHA512. Default: SHA256. Optional
+* phar: __REQUIRED__ Path to Phar.
+* encrypt-type: Encryption algorithm (MD5, SHA1, SHA256, SHA512). Default: SHA256.
+* output: Directory where the hash is generated.
 
 ####Validate sign
 
     phox sign-validate --phar=/tmp/my_dir/MyAlias.phar --sign-file=/tmp/my_dir/hash.SHA256
 
-* phar: Path to Phar. __Required__
-* sign: Signature string. Optional
-* sign-file: Signature file. Optional
+* phar: __REQUIRED__ Path to Phar
+* hash-string: Hash string created when the Phar file was signed.
+* hash-file: Path to the hash file created when the Phar was signed.
 
 
 ##Current stable version
-__1.0.0__
+__1.0.1__
 
 ##Install
 
@@ -69,9 +70,9 @@ If your are working on \*Unix systems you can create a symbolic link.
     ln -s  ~/.composer/vendor/bin/phox
 
 On Windows environment, you can add the php executble on the environment variables. You have to call phox on this way:
-    
-    php phox build..... 
-    
+
+    php phox build.....
+
 __Composer__
 Adding the dependency on composer.json
 

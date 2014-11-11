@@ -88,7 +88,7 @@ class SignatureCreate extends Command
         $this->validate($input, $output);
 
         $rutaPhar = $input->getOption('phar');
-        $sigtypeaux = $input->getOption('sign-type');
+        $sigtypeaux = $input->getOption('encrypt-type');
         $saveHashIn = $input->getOption('output');
 
         $phar = new \Phar($rutaPhar);
@@ -108,6 +108,7 @@ class SignatureCreate extends Command
                 break;
             default:
                 $signType = \Phar::SHA256;
+                $sigtypeaux = 'SHA256';
                 break;
         }
         $phar->setSignatureAlgorithm($signType);
@@ -144,8 +145,8 @@ class SignatureCreate extends Command
             }
         }
 
-        $hashType = strtoupper($input->getOption('sign-type'));
-        if (null !== $hashType && !in_array($hashType, ['MD5', 'SHA1', 'SHA256', 'SHA512'])) {
+        $hashType = strtoupper($input->getOption('encrypt-type'));
+        if (null !== $hashType && '' !== $hashType && !in_array($hashType, ['MD5', 'SHA1', 'SHA256', 'SHA512'])) {
             $output->writeln('<error>Invalid encript type</error>');
             exit(1);
         }
