@@ -1,7 +1,7 @@
 {
     "name": "mostofreddy/phox",
     "description": "Phox provide a simple way to build, extract and sign Phar files.",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "keywords": ["Phar", "building", "package"],
     "homepage": "https://github.com/mostofreddy/phox",
     "type": "library",

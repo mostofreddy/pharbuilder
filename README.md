@@ -10,6 +10,43 @@
 
 Phox provide a simple way to build, extract and sign Phar files.
 
+## Current stable version
+__1.1.0__
+
+## Install
+
+Phox is able to be installed on your machine or on the server for one of the following ways.
+
+### Globally
+
+    composer global require "mostofreddy/phox=1.0.0"
+
+If your are working on \*Unix systems you can create a symbolic link.
+
+    cd /usr/bin
+    ln -s  ~/.composer/vendor/bin/phox
+
+On Windows environment, you can add the php executble on the environment variables. You have to call phox on this way:
+
+    php phox build.....
+
+### Composer
+Adding the dependency on composer.json
+
+    "require": {
+        "mostofreddy/phox": "1.0.0"
+        ...
+    }
+
+### Download
+You can download the last stable version from https://github.com/mostofreddy/phox/releases/download/1.0.0/phox.phar
+
+## License
+The [MIT License](http://opensource.org/licenses/MIT) ([MIT](http://opensource.org/licenses/MIT)). Please see [License File](https://github.com/mostofreddy/phox/blob/master/LICENSE.md) for more information.
+
+## Issues
+Before reporting a problem, please read how to [File an issue](https://github.com/mostofreddy/phox/issues).
+
 ## Using Phox
 
 ### Running Phox from the command line
@@ -53,41 +90,10 @@ Example
 * hash-file: Path to the hash file created when the Phar was signed.
 
 
-##Current stable version
-__1.0.1__
-
-##Install
-
-Phox is able to be installed on your machine or on the server for one of the following ways.
-
-__Globally__
-
-    composer global require "mostofreddy/phox=1.0.0"
-
-If your are working on \*Unix systems you can create a symbolic link.
-
-    cd /usr/bin
-    ln -s  ~/.composer/vendor/bin/phox
-
-On Windows environment, you can add the php executble on the environment variables. You have to call phox on this way:
-
-    php phox build.....
-
-__Composer__
-Adding the dependency on composer.json
-
-    "require": {
-        "mostofreddy/phox": "1.0.0"
-        ...
-    }
-
-__Download__
-You can download the last stable version from https://github.com/mostofreddy/phox/releases/download/1.0.0/phox.phar
 
 
 
-##License
-The [MIT License](http://opensource.org/licenses/MIT) ([MIT](http://opensource.org/licenses/MIT)). Please see [License File](https://github.com/mostofreddy/phox/blob/master/LICENSE.md) for more information.
 
-##Issues
-Before reporting a problem, please read how to [File an issue](https://github.com/mostofreddy/phox/issues).
+
+
+
