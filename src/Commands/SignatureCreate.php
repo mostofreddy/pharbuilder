@@ -51,26 +51,26 @@ class SignatureCreate extends Command
     {
         $this
             ->setName('sign-create')
-            ->setDescription('Signature Phar file')
+            ->setDescription('Add signature to a Phar file')
             ->setOptions();
     }
     protected function setOptions()
     {
         $this->addOption(
-            'sign-type',
-            null,
-            InputOption::VALUE_REQUIRED,
-            'Hash: MD5, SHA1, SHA256, SHA512. Default: SHA256'
-        )->addOption(
             'phar',
             null,
             InputOption::VALUE_REQUIRED,
-            '[REQUIRED] Path to Phar'
+            '[REQUIRED] Path to Phar.'
+        )->addOption(
+            'encrypt-type',
+            null,
+            InputOption::VALUE_REQUIRED,
+            'Encryption algorithm (MD5, SHA1, SHA256, SHA512). Default: SHA256.'
         )->addOption(
             'output',
             null,
             InputOption::VALUE_REQUIRED,
-            '[REQUIRED] Directory where the hash is generated'
+            'Directory where the hash is generated.'
         );
     }
     /**
@@ -84,7 +84,7 @@ class SignatureCreate extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('');
-        $output->writeln('<comment>Generate signature</comment>');
+        $output->writeln('<comment>Generating signature</comment>');
         $this->validate($input, $output);
 
         $rutaPhar = $input->getOption('phar');
@@ -134,7 +134,7 @@ class SignatureCreate extends Command
     {
         $phar = $input->getOption('phar');
         if (null === $phar) {
-            $output->writeln('<error>The parameter phar is required</error>');
+            $output->writeln('<error>The parameter \'phar\' is required</error>');
             exit(1);
         }
         if (null !== $phar) {
@@ -146,7 +146,7 @@ class SignatureCreate extends Command
 
         $hashType = strtoupper($input->getOption('sign-type'));
         if (null !== $hashType && !in_array($hashType, ['MD5', 'SHA1', 'SHA256', 'SHA512'])) {
-            $output->writeln('<error>Invalid sign type</error>');
+            $output->writeln('<error>Invalid encript type</error>');
             exit(1);
         }
 

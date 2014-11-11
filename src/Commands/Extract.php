@@ -61,12 +61,12 @@ class Extract extends Command
             'output',
             null,
             InputOption::VALUE_REQUIRED,
-            '[REQUIRED] Directory where the file will extract'
+            '[REQUIRED] Output directory to extract the files.'
         )->addOption(
             'phar',
             null,
             InputOption::VALUE_REQUIRED,
-            '[REQUIRED] Path to Phar'
+            '[REQUIRED] Path to Phar file.'
         );
     }
     /**
@@ -106,7 +106,7 @@ class Extract extends Command
     {
         $dir = $input->getOption('output');
         if (null === $dir) {
-            $output->writeln('<error>The parameter output is required</error>');
+            $output->writeln('<error>The parameter \'output\' is required</error>');
             exit(1);
         }
         if (null !== $dir) {
@@ -117,7 +117,7 @@ class Extract extends Command
         }
         $phar = $input->getOption('phar');
         if (null === $phar) {
-            $output->writeln('<error>The parameter phar is required</error>');
+            $output->writeln('<error>The parameter \'phar\' is required</error>');
             exit(1);
         }
         if (null !== $phar) {

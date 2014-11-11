@@ -60,17 +60,17 @@ class SignatureValidate extends Command
             'phar',
             null,
             InputOption::VALUE_REQUIRED,
-            '[REQUIRED] Path to Phar'
+            '[REQUIRED] Path to Phar.'
         )->addOption(
-            'sign',
+            'hash-string',
             null,
             InputOption::VALUE_REQUIRED,
-            'Signature string'
+            'Hash string created when the Phar file was signed.'
         )->addOption(
-            'sign-file',
+            'hash-file',
             null,
             InputOption::VALUE_REQUIRED,
-            'Signature file'
+            'Path to the hash file created when the Phar was signed.'
         );
 
     }
@@ -101,7 +101,7 @@ class SignatureValidate extends Command
         $sig = $phar->getSignature();
 
         if ($sig['hash'] === $sign) {
-            $output->writeln('<info>It\'s OK!</info>');
+            $output->writeln('<info>Sign validated!</info>');
             return 0;
         } else {
             $output->writeln('<error>Invalid sign</error>');
@@ -121,7 +121,7 @@ class SignatureValidate extends Command
     {
         $phar = $input->getOption('phar');
         if (null === $phar) {
-            $output->writeln('<error>The parameter phar is required</error>');
+            $output->writeln('<error>The parameter \'phar\' is required</error>');
             exit(1);
         }
         if (null !== $phar) {

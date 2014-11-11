@@ -59,40 +59,40 @@ class Building extends Command
     protected function setOptions()
     {
         $this->addOption(
+            'src',
+            null,
+            InputOption::VALUE_REQUIRED,
+            '[REQUIRED] The full or relative path to the directory that contains all files to add.'
+        )->addOption(
             'output',
             null,
             InputOption::VALUE_REQUIRED,
-            'REQUIRED - Directory where the file was created'
+            '[REQUIRED] Output directory for phar file.'
         )->addOption(
             'alias',
             null,
             InputOption::VALUE_REQUIRED,
-            'Alias with which this Phar archive should be referred to in calls to stream functionality'
-        )->addOption(
-            'src',
-            null,
-            InputOption::VALUE_REQUIRED,
-            'REQUIRED - The full or relative path to the directory that contains all files to add to the archive'
+            'Alias with which this Phar archive should be referred to in calls to stream functionality.'
         )->addOption(
             'stub',
             null,
             InputOption::VALUE_REQUIRED,
-            'Cli bootstrap. Path relative tu src option'
+            'Path to the php file to call when Phar file is running from command line. Example: --stubweb=src/mainStubCli.php.' 
         )->addOption(
             'stubweb',
             null,
             InputOption::VALUE_REQUIRED,
-            'Web bootstrap. Path relative tu src option'
+            'Endpoint file when the Phar file is running as a site on server (ex: virtal host on Apache or server block in Nginx). Example: --stubweb=src/mainStubWeb.php.'
         )->addOption(
             'replace',
             false,
             InputOption::VALUE_NONE,
-            'If the file exists, delete it'
+            'If the file exists, delete it.'
         )->addOption(
             'exclude',
             null,
             InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED,
-            'Excludes a directory'
+            'Directory exclusion (ex: --exclude=tests --exclude=docs).'
         );
         return $this;
     }
@@ -195,11 +195,11 @@ class Building extends Command
     public function validate(InputInterface $input, OutputInterface $output)
     {
         if (null === $input->getOption('output')) {
-            $output->writeln('<error>The parameter output is required</error>');
+            $output->writeln('<error>The parameter \'output\' is required</error>');
             exit(1);
         }
         if (null === $input->getOption('src')) {
-            $output->writeln('<error>The parameter src is required</error>');
+            $output->writeln('<error>The parameter \'src\' is required</error>');
             exit(1);
         }
         $stub = $input->getOption('stub');
