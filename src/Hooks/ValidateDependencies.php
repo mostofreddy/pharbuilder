@@ -47,7 +47,7 @@ class ValidateDependencies implements HookInterface
     {
         $output = $event->getOutput();
 
-        $output->writeln("<comment>Validating dependencies:</comment>");
+        $output->writeln("<comment>Dependencies validation:</comment>");
 
         $output->write(str_pad("Phar extension is loaded?", 30, '.'));
         $error = false;
