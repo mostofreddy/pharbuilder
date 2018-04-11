@@ -1,3 +1,5 @@
+**DEPRECATED**
+
 #Phox
 
 
@@ -88,12 +90,3 @@ Example
 * phar: __REQUIRED__ Path to Phar
 * hash-string: Hash string created when the Phar file was signed.
 * hash-file: Path to the hash file created when the Phar was signed.
-
-
-
-
-
-
-
-
-
